@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Freshness Tracker - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Food Freshness Tracker</h1>
+            <div class="nav-right">
+                <span id="welcomeMessage">Welcome, <span id="userName"></span>!</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Summary Cards -->
+        <div class="summary-section">
+            <div class="summary-card fresh">
+                <div class="card-icon">🥬</div>
+                <div class="card-content">
+                    <h3>Fresh Items</h3>
+                    <p class="card-count" id="freshCount">0</p>
+                </div>
+            </div>
+            <div class="summary-card expiring">
+                <div class="card-icon">⚠️</div>
+                <div class="card-content">
+                    <h3>Expiring Soon</h3>
+                    <p class="card-count" id="expiringCount">0</p>
+                </div>
+            </div>
+            <div class="summary-card expired">
+                <div class="card-icon">❌</div>
+                <div class="card-content">
+                    <h3>Expired</h3>
+                    <p class="card-count" id="expiredCount">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Current Perishables</h2>
+                <button class="btn-add" onclick="openAddItemModal()">+ Add Item</button>
+            </div>
+
+            <div id="itemsList" class="items-grid">
+                <!-- Items will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="addItemModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Item</h3>
+                <span class="close" onclick="closeAddItemModal()">&times;</span>
+            </div>
+            <form id="addItemForm">
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" id="itemQuantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="itemCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="produce">Produce</option>
+                        <option value="meat">Meat</option>
+                        <option value="bakery">Bakery</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Purchase Date</label>
+                    <input type="date" id="purchaseDate" required>
+                </div>
+                <button type="submit" class="btn-primary" id="addItemBtn">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
