@@ -9,6 +9,9 @@ from typing import List, Optional
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 import uvicorn
+from datetime import timezone
+
+
 
 app = FastAPI()
 
@@ -86,10 +89,11 @@ def create_access_token(data: dict):
     return encoded_jwt
 
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    print("Token received:", credentials.credentials)
     token = credentials.credentials
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        user_id: int = payload.get("sub")
+        user_id = int(payload.get("sub"))
         if user_id is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -158,7 +162,8 @@ async def login(user: UserLogin):
             detail="Invalid email or password"
         )
     
-    access_token = create_access_token(data={"sub": db_user["id"]})
+    access_token = create_access_token(data={"sub": str(db_user["id"])})
+
     
     return {
         "token": access_token,
