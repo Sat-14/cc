@@ -303,9 +303,15 @@ async function addItem(event) {
             
             // Check if item is expiring soon
             const daysRemaining = calculateDaysRemaining(newItem.expiry_date);
-            if (daysRemaining <= 3) {
-                showNotification(`Warning: ${itemData.name} expires in ${daysRemaining} days!`, 'warning');
+
+            if (daysRemaining < 0) {
+                showNotification(`${itemData.name} expired ${Math.abs(daysRemaining)} days ago!`, 'error');
+            } else if (daysRemaining === 0) {
+                showNotification(`${itemData.name} expires today!`, 'warning');
+            } else if (daysRemaining <= 3) {
+                showNotification(`Warning: ${itemData.name} expires in ${daysRemaining} day${daysRemaining === 1 ? '' : 's'}!`, 'warning');
             }
+
         } else {
             const error = await response.json();
             showNotification(error.detail || 'Failed to add item', 'error');
