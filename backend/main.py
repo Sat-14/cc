@@ -219,16 +219,11 @@ async def add_item(user_id: int, item: FoodItem, current_user: int = Depends(ver
 
 @app.post("/inventory/{item_id}/consume")
 async def mark_consumed(item_id: int, current_user: int = Depends(verify_token)):
-    """Mark item as consumed"""
-    # Find the item across all users (in production, use proper DB query)
     for user_id, items in inventory_db.items():
+        if user_id != current_user:
+            continue  # Skip other users' inventories
         for item in items:
             if item["id"] == item_id:
-                if user_id != current_user:
-                    raise HTTPException(
-                        status_code=status.HTTP_403_FORBIDDEN,
-                        detail="Access denied"
-                    )
                 item["consumed"] = True
                 item["consumed_date"] = datetime.now().isoformat()
                 return {"message": "Item marked as consumed"}
@@ -237,6 +232,7 @@ async def mark_consumed(item_id: int, current_user: int = Depends(verify_token))
         status_code=status.HTTP_404_NOT_FOUND,
         detail="Item not found"
     )
+
 
 @app.delete("/inventory/{item_id}")
 async def delete_item(item_id: int, current_user: int = Depends(verify_token)):
