@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Freshness Tracker - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Food Freshness Tracker</h1>
+            <h2>Create Account</h2>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            
+            <p class="auth-link">
+                Already have an account? <a href="index.html">Login here</a>
+            </p>
+        </div>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
