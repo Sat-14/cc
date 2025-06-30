@@ -32,6 +32,7 @@
     --glass-border: rgba(255, 255, 255, 0.2);
 }
 
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -336,9 +337,10 @@ input::placeholder {
 
 
 .nav-content {
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 20px;
+    padding-left: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -363,7 +365,7 @@ input::placeholder {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
 }
 
 
@@ -372,6 +374,7 @@ input::placeholder {
 #welcomeMessage {
     color: var(--gray-600);
     font-weight: 500;
+    
 }
 
 #userName {
@@ -982,5 +985,296 @@ html {
     animation: fadeInUp 0.6s ease-out forwards;
     animation-delay: calc(var(--card-index, 0) * 0.2s);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌙 Enhanced Dark Mode Overrides */
+body.dark-mode {
+    background: linear-gradient(135deg, #0c0c0e 0%, #1a1a2e 100%) !important;
+    color: #e0e0e0 !important;
+    transition: background 1s ease;
+}
+
+body.dark-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(60, 30, 90, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(20, 40, 80, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(80, 0, 40, 0.1) 0%, transparent 60%);
+    z-index: -1;
+    filter: blur(30px);
+    opacity: 0.8;
+    animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+body.dark-mode .auth-box,
+body.dark-mode .main-content,
+body.dark-mode .modal-content,
+body.dark-mode .summary-card,
+body.dark-mode .item-card,
+
+
+
+body.dark-mode .navbar {
+    background: rgba(25, 25, 35, 0.6) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+body.dark-mode .dashboard-container {
+    background: rgba(25, 25, 35, 0.85) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(80, 80, 120, 0.3) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 16px rgba(80, 100, 230, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode .card-count,
+body.dark-mode .days-remaining,
+body.dark-mode .item-name {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .auth-box h1,
+body.dark-mode .nav-content h1 {
+    background: linear-gradient(135deg, #8a9eff 0%, #667eea 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+body.dark-mode .summary-card {
+    background: rgba(30, 30, 40, 0.8) !important;
+    border: 1px solid rgba(100, 110, 200, 0.15) !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .summary-card:hover {
+    background: rgba(40, 40, 55, 0.9) !important;
+    border-color: rgba(102, 126, 234, 0.4) !important;
+    box-shadow: 
+        0 6px 24px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(80, 100, 230, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-1px) scale(1.00001) !important;
+}
+
+body.dark-mode .item-card {
+    border: 1px solid rgba(60, 60, 90, 0.4) !important;
+    background: rgba(35, 35, 45, 0.7) !important;
+}
+
+body.dark-mode .item-card:hover {
+    background: rgba(45, 45, 60, 0.85) !important;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(80, 100, 230, 0.1) !important;
+    border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+body.dark-mode .item-card::before {
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+}
+
+body.dark-mode .btn-primary,
+body.dark-mode .btn-add,
+body.dark-mode .btn-logout {
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-add:hover,
+body.dark-mode .btn-logout:hover {
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(80, 100, 230, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="date"],
+body.dark-mode select {
+    background: rgba(20, 20, 30, 0.7) !important;
+    border: 1px solid rgba(80, 90, 150, 0.4) !important;
+    color: #e0e0f0 !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+    border-color: #667eea !important;
+    box-shadow: 
+        0 0 0 3px rgba(80, 100, 230, 0.2),
+        var(--shadow-md) !important;
+}
+
+body.dark-mode .error-message {
+    background: rgba(180, 60, 60, 0.2) !important;
+    border: 1px solid rgba(220, 100, 100, 0.3) !important;
+}
+
+body.dark-mode .success-message {
+    background: rgba(60, 150, 80, 0.2) !important;
+    border: 1px solid rgba(80, 180, 100, 0.3) !important;
+}
+
+/* Particle effect for depth */
+body.dark-mode::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 9px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    z-index: -2;
+    animation: particleMove 120s linear infinite;
+}
+
+@keyframes particleMove {
+    from { background-position: 0 0, 40px 60px, 130px 270px; }
+    to { background-position: 550px 550px, 390px 410px, 380px 520px; }
+}
+
+/* Smooth transition for dark mode toggle */
+body, body.dark-mode {
+    transition: 
+        background-color 0.8s ease,
+        color 0.8s ease;
+}
+
+/* Improved dark mode toggle button */
+#darkModeToggle {
+    padding: 10px;
+    height: 36px;
+    width: 36px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#darkModeToggle::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: transform 0.6s ease;
+    transform: translateX(-100%) rotate(45deg);
+}
+
+#darkModeToggle:hover::after {
+    transform: translateX(100%) rotate(45deg);
+}
+
+body.dark-mode #darkModeToggle {
+    background: linear-gradient(135deg, #8a9eff 0%, #667eea 100%);
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body.dark-mode .summary-card:hover {
+        transform: translateY(-4px) scale(1.01) !important;
+    }
+    
+    body.dark-mode .item-card:hover {
+        transform: translateY(-2px) !important;
+    }
+}
+
+
+body.dark-mode #welcomeMessage {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode #userName {
+    color: #ffffff !important;
+}
+
+
+
+
+/*  remove the blue border on around of consumed boxes */
+/* Add this to your CSS to remove the blue focus border */
+.item-checkbox input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Optional: Add a more subtle focus indicator */
+.item-checkbox input[type="checkbox"]:focus-visible {
+    outline: 2px solid rgba(102, 126, 234, 0.3);
+    outline-offset: 2px;
+}
+
+body.dark-mode input[type="date"] {
+    background-color: #2d3748; /* dark gray */
+    color: #f0f0f0; /* light text */
+    border: 1px solid #4a5568;
+}
+
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* makes the calendar icon white */
+}
+  
+  
 
 
