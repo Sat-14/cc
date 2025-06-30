@@ -322,11 +322,11 @@ input::placeholder {
 
 /* Dashboard Navbar */
 .navbar {
-    background: rgba(255, 255, 255, 0.1); /* subtle glass */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -334,64 +334,54 @@ input::placeholder {
 
 
 
+
 .nav-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
+
 
 
 
 .nav-content h1 {
-    font-size: 26px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
+
+
 
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: 14px;
-    flex-wrap: wrap;
+    gap: 24px;
 }
 
 
 
+
 #welcomeMessage {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--gray-600);
     font-weight: 500;
 }
 
 #userName {
     font-weight: 700;
-    color: var(--white);
+    color: var(--gray-800);
 }
 
-.btn-logout {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
 
-.btn-logout:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
+
+
 
 
 /* Dashboard Container */
@@ -994,15 +984,3 @@ html {
 }
 
 
-@media (max-width: 600px) {
-    .nav-content {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-  
-    .nav-right {
-      justify-content: center;
-    }
-  }
-  
