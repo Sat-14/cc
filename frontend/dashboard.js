@@ -469,3 +469,12 @@ document.addEventListener('visibilitychange', () => {
         loadInventory(); // Immediate refresh when page becomes visible
     }
 });
+
+
+
+
+// Dark mode toggle functionality
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.documentElement.classList.toggle('dark-mode'); // <html> tag
+});
