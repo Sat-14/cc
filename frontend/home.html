@@ -13,12 +13,13 @@
             <div class="nav-right">
                 <span id="welcomeMessage">Welcome, <span id="userName"></span>!</span>
                 <button class="btn-logout" onclick="logout()">Logout</button>
+                <button id="darkModeToggle">🌙</button>
+
             </div>
         </div>
     </nav>
 
     <div class="dashboard-container">
-        <!-- Summary Cards -->
         <div class="summary-section">
             <div class="summary-card fresh">
                 <div class="card-icon">🥬</div>
@@ -43,7 +44,6 @@
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div class="content-header">
                 <h2>Current Perishables</h2>
@@ -51,12 +51,10 @@
             </div>
 
             <div id="itemsList" class="items-grid">
-                <!-- Items will be dynamically loaded here -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- Add Item Modal -->
     <div id="addItemModal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
